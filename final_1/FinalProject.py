@@ -22,6 +22,9 @@ def main():
         SOURCE_DIR = CURRENT_DIR + "\SOURCE"
         DESTINATION_DIR = CURRENT_DIR + "\DESTINATION"
 
+        # since github doesn't allow empty folders to be stored, have to create one when the script is executed
+        check_create('DESTINATION')
+
         # Find all files in the source directory, count and output the result
         print(f"{Fore.YELLOW}Searching for files in source directory...")
         source_file_list = read_filenames(SOURCE_DIR)
@@ -114,7 +117,7 @@ def make_filetype_folder(DESTINATION_DIR):
             os.makedirs(folder)
             print(f"{Fore.YELLOW}Creating folder '{_}'")
             time.sleep(1)
-        else: print(f'{Fore.LIGHTRED_EX}Required folder already exist. Skipping..')
+        else: print(f'{Fore.LIGHTRED_EX}Required folder already exists. Skipping..')
 
 
 def read_filenames(location):
@@ -249,6 +252,12 @@ def count_files(file_list):
     for _ in file_list: count += 1
     return count
 
+def check_create(folder):
+    fd_name = CURRENT_DIR + '\\' + folder
+    if not os.path.exists(fd_name):
+        os.makedirs(fd_name)
+        print(f"{Fore.YELLOW}Creating folder '{folder}'")
+        time.sleep(1)
 
 if __name__ == '__main__':
     main()

@@ -6,6 +6,7 @@ to make sure this *program works* as it supposed to.
 ## Structure
 
 The project contains two folders **[SOURCE, DESTINATION]**. They are part of this program.
+*NOTE* The **DESTINATION** folder will be created as soon as you run the scipt, because github doesn't allow empty folders
 The **SOURCE** folder contains 21 fake files: *5 documents, 5 images, 5 audio, 5 video, 1 unsorted*
 These files are placed to keep your personal files away from being touched in this project.
 The **DESTINATION** folder is where files are to be moved to. 
